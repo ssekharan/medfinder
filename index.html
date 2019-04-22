@@ -1,0 +1,96 @@
+<!--COMP 424 Project by Swaeta Sekharan-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MedFinder</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="banner">
+        <!--TOP HEADER-->
+        <div class="header">
+            <h1>MedFinder</h1>
+        </div>
+
+        <div class="header2">
+            <h2> Find a physician based on specialty, insurance, gender, and location!</h2>
+        </div>
+        <div class="banner-extras">
+            <!--<div class="site-search">-->
+            <!--<input type="search" name="search_query" placeholder="enter state code...e.g. CA">-->
+            <!--<input type="submit" value="search" name="search_submit" class="submit-button">-->
+            <!--</div>-->
+            <div class="site-user">
+                <div class="user-login">
+                    <!--<a href="medfinder_login.html"><input type="submit" value="login" name="user_login"
+                                                          class="submit-button"></a>-->
+                    <a href="email-password.html"><input type="submit" value="Register/Login" name="user_register"
+                                                           class="submit-button"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<nav class="site-nav" aria-labelledby="primary-navigation">-->
+    <!--<ul>-->
+    <!--<li><a id="specialty">specialty</a></li>-->
+    <!--<li><a id="insurance">insurance</a></li>-->
+    <!--<li><a id="problem">problem</a></li>-->
+    <!--<li><a id="distance">distance</a></li>-->
+    <!--</ul>-->
+    <!--</nav>-->
+
+    <div class="site-nav" aria-labelledby="primary-navigation">
+        <form id="my-form" action="./results.html">
+            <div class="flex-container">
+                <div class="specialty" id="specialty">
+                    <select id="select-specialty" name="specialty">
+                        <!--  <option value="Name">{{name}}</option>-->
+                        <option value="" selected disabled hidden>Specialty</option>
+                        <option value="internist">Internal Medicine</option>
+                        <option value="pediatrician">Pediatrics</option>
+                    </select>
+                </div>
+                <div class="Insurance" id="insurance">
+                    <select id="select-insurance" name="insurance">
+                        <option value="" selected disabled hidden>Insurance</option>
+                        <!--  <option value="amerihealth">Amerihealth</option>-->
+                        <option value="aetna-aetnahmo">Aetna HMO</option>
+                        <option value="bcbsbluecard-bcbsbluecardppo">BCBS-PPO</option>
+                        <option value="anthem-anthemppo">Anthem PPO</option>
+                        <option value="cigna-cignahmo">Cigna HMO</option>
+                    </select>
+                </div>
+                <div class="gender" id="gender">
+                    <select id="select-gender" name="gender">
+                        <option value="" selected disabled hidden>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <!--<input id="input-problem" name="problem" type="text" placeholder="Enter problem">-->
+                </div>
+
+                <div class="zip" id="zip">
+                    <input id="input-zip" name="location" type="text" placeholder="Enter location as (state-city)">
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="searchbutton" id="search">
+                    <button>Search</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="footer">
+        <p>Loyola University Chicago, COMP424, Spring 2019</p>
+        <p>by Swaeta Sekharan</p>
+    </div>
+
+</div>
+
+
+</body>
+</html>

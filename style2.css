@@ -1,0 +1,319 @@
+
+
+/*
+* basicdoctor api test - style.css
+* - specialties from API query
+*/
+
+body {
+	background-color:lightgray;
+	background-size:cover;
+	font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 1vh;
+	color: black;
+}
+
+/* headings - default */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+/*
+* INPUT - various input field and usage
+*/
+/* general input  */
+.submit-button {
+	padding: 5px;
+	border: 1px solid #137fa6;
+	background-color: #137fa6;
+	color: #fff;
+}
+
+/* hover pseudoclass */
+.submit-button:hover {
+	background-color: #b97454;
+	border: 1px solid #b97454;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* search input */
+input[name="search_query"] {
+	border: 1px solid #137fa6;
+	width: 180px;
+	padding: 5px;
+	outline: none;
+	color: #444;
+}
+
+/* search submit */
+input[name="search_submit"] {
+	width: 60px;
+	margin: 0 5px;
+	outline: none;
+}
+
+/* USER - login, register */
+input[name="user_login"], input[name="user_register"] {
+  width: 70px;
+	margin: 5px 0;
+	outline:none;
+}
+
+/* GRID - WRAPPER container */
+.wrapper {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-rows: auto auto 1fr;
+	grid-template-areas:
+		"banner"
+		"nav-primary"
+		"main";
+	height: 98vh;
+}
+
+/* GRID - BANNER container */
+.banner {
+	grid-area: banner;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-areas:
+		"site-header banner-extras";
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto;
+	padding: 10px;
+	border: 1px solid #0096B2;
+}
+
+/* SITE HEADER */
+.site-header {
+	grid-area: site-header;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 25px;
+}
+
+.site-header h3 {
+	color: #137fa6;
+	padding: 0 0 10px 0;
+	font-size: 1.35rem;
+}
+
+.site-header h5 {
+	color: #444;
+	font-size: 0.75rem;
+	font-style: italic;
+}
+
+/* GRID - BANNER EXTRAS */
+.banner-extras {
+	grid-area: banner-extras;
+	display: grid;
+	grid-template-areas:
+		"site-search site-user";
+	grid-template-columns: minmax(200px, auto) minmax(100px, max-content);
+}
+
+.banner-extras h4 {
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+/* USER */
+.site-user {
+	grid-area: site-user;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.user-login {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px;
+}
+
+/* SITE SEARCH */
+.site-search {
+	grid-area: site-search;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+/*
+* NAVIGATION
+*/
+
+/* primary site nav */
+.site-nav {
+	grid-area: nav-primary;
+	border: 1px solid #0096B2;
+}
+
+/* nav menu */
+nav ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+nav ul li {
+	list-style-type: none;
+}
+
+nav ul li a {
+	padding: 10px;
+	border: 1px solid #fff;
+	/* color: #BC5B2F; */
+	color: #b97454;
+	cursor: pointer;
+}
+
+nav ul li a:hover {
+	border: 1px solid #BC5B2F;
+}
+
+/*
+* PAGE CONTENT
+*/
+
+/* MAIN site content */
+.site-content {
+	grid-area: main;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-areas:
+		"content";
+	grid-template-columns: auto;
+	border: 1px solid #ccc;
+}
+
+/* generic content */
+.content {
+	grid-area: content;
+	display: grid;
+	grid-template-areas:
+		"content-header"
+		"content-list"
+		"content-output";
+	grid-template-columns: auto;
+	grid-gap: 5px;
+	padding: 20px;
+}
+
+/* generic content headings */
+.content h4 {
+	margin: 10px;
+	font-size: 1.1rem;
+	color: #137fa6;
+}
+
+/* table for main content output */
+.content table {
+	width: 96%;
+	margin: 2%;
+	padding: 1%;
+	border: 1px solid #137fa6;
+}
+
+/* table caption */
+.content caption {
+	text-align: left;
+	margin: 10px;
+}
+
+/* table heading */
+.content table th {
+	padding: 0 10px 10px 10px;
+}
+
+/* table data - cell in row */
+.content table td {
+	min-width: 120px;
+	padding: 5px;
+	border: 1px solid #137fa6;
+}
+
+/* specific header for main content */
+.content header {
+	grid-area: content-header;
+}
+
+/* search link */
+.search-link {
+	color: #b97454;
+	cursor: pointer;
+}
+
+/*
+* FOOTER
+*/
+
+/* site footer */
+footer {
+	padding: 5px 20px;
+	font-size: 0.75rem;
+	border: 1px solid #ccc;
+}
+
+/*
+* sorted output
+* - render ordered list for API query
+* - render selected data to output
+*/
+.sorted-list {
+	grid-area: content-list;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+/* sorted listed - e.g. alphabetical list for specialties */
+.sorted-list ul {
+	margin: 10px;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+/* list item - e.g. letter per specialty */
+.sorted-list ul li {
+	padding: 5px;
+	display: inline;
+	list-style-type: none;
+	cursor: pointer;
+	font-size: 0.7rem;
+	color: #b97454;
+	border: 1px solid #b97454;
+}
+
+.sorted-list ul li:hover {
+	background-color: #b97454;
+	color: #fff;
+}
+
+/* sorted output - e.g. rendered tables for specialty data */
+.sorted-output {
+	grid-area: content-output;
+	margin-top: 10px;
+	border: 1px solid #ddd;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
