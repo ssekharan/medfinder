@@ -66,7 +66,10 @@ function elemBuild(type, ...children) {
     else if (typeof child != 'string') {
 			// append elemnt node
       node.appendChild(child);
-    } else {
+    }
+
+
+		 else {
 			// else append text node as content for current node
       node.appendChild(document.createTextNode(child));
     }
@@ -153,12 +156,13 @@ function handleFormSubmit(specialty, insurance, gender, zipcode) {
 											// define some values to output for sample doctor data
 											const practiceLocation = innerProps['location_slug'];
 											const practiceName = innerProps['name'];
+											//const btnAttrs = [['class', 'btn'], ['type', 'button'], ['value', 'Add'] ['onClick', '(function(entry) {return function() {chooseUser(entry);}})(entry)']];
 											// add sample doctor data to output table
+
 											document.querySelector('.output-table').appendChild(
 												elemBuild('tr',
 													elemBuild('td', practiceLocation),
-													elemBuild('td', practiceName),
-												)
+													elemBuild('td', practiceName),																									)
 											)
 										}
 									}
