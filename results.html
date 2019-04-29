@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8">
     <title>MedFinder</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
     <link rel="stylesheet" type="text/css" href="./style2.css">
 </head>
 <body>
@@ -12,8 +14,12 @@
 
 
   <form action="index.html">
-           <button type="submit">Home</button>
+           <button type="submit">HOME</button>
         </form>
+
+<form id="c-form" action="api-query.js">
+     <button type="submit">SAVE</button>
+</form>
 
 <main class="site-content">
     <section id="page-content" class="content">
@@ -24,5 +30,19 @@
     <p>Loyola University Chicago, COMP424, Spring 2019</p>
     <p>by Swaeta Sekharan</p>
 </div>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDXx7piPM9Qa9lL3EFpBvOdRGHH4KsDbyw",
+   authDomain: "medfinder-eda15.firebaseapp.com",
+   databaseURL: "https://medfinder-eda15.firebaseio.com",
+   projectId: "medfinder-eda15",
+   storageBucket: "medfinder-eda15.appspot.com",
+   messagingSenderId: "991838838478"
+ };
+ firebase.initializeApp(config);
+ const db= firebase.firestore();
+ db.settings({timestampsInSnapshots:true});
+</script>
 <script src="./api-query.js"></script>
 </body>

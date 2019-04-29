@@ -12,6 +12,9 @@
 * - code allows user input for state code, e.g CA, IL...
 * - specialties query...
 */
+const form = document.querySelector("#c-form");
+var status=0;
+
 function getAPIQuery(get, params) {
 	// url for api query
 	const apiURL = `https://api.betterdoctor.com/2016-03-01/${get}?`;
@@ -108,7 +111,7 @@ function objectSort(data, compare) {
 * EVENT: listen for click event on menu item
 * - specific example for 'specialties'
 */
-function handleFormSubmit(specialty, insurance, gender, zipcode) {
+function handleFormSubmit(specialty, insurance, gender, zipcode, status) {
 	// call 'read' async function for API query
 	var specialty_param = "specialty_uid=" + encodeURIComponent(specialty);
 	var insurance_param = "&insurance_uid=" + encodeURIComponent(insurance);
@@ -149,6 +152,8 @@ function handleFormSubmit(specialty, insurance, gender, zipcode) {
 											)
 										)
 									)
+
+									var i=0;
 									// loop through results for specialty & doctors
 									for (let props of val.data) {
 										// inner loop for multiple practices per location...
@@ -156,9 +161,19 @@ function handleFormSubmit(specialty, insurance, gender, zipcode) {
 											// define some values to output for sample doctor data
 											const practiceLocation = innerProps['location_slug'];
 											const practiceName = innerProps['name'];
-											//const btnAttrs = [['class', 'btn'], ['type', 'button'], ['value', 'Add'] ['onClick', '(function(entry) {return function() {chooseUser(entry);}})(entry)']];
 											// add sample doctor data to output table
+										if (status==1){
+												db.doc("users/user1").collection("search").doc(i.toString()).set({
+													PracticeName:practiceName,
+													PracticeLocation:practiceLocation
+												}).then (function(){
+													console.log("Status saved");
+												}).catch(function(error){
+													console.log("Got an error: ", error);
+												});
+												i++;
 
+										}
 											document.querySelector('.output-table').appendChild(
 												elemBuild('tr',
 													elemBuild('td', practiceLocation),
@@ -178,15 +193,21 @@ function getUrlVars() {
     return vars;
 }
 
-function runOnPageLoad() {
+form.addEventListener("submit", e=> {
+	e.preventDefault();
+	status=1;
+	runOnPageLoad(status);
+})
+
+function runOnPageLoad(status) {
 var page_params = getUrlVars();
 const specialty = page_params['specialty'];
 const insurance = page_params['insurance'];
 const gender = page_params['gender'];
 const location = page_params['location'];
-handleFormSubmit(specialty, insurance, gender, location);
+handleFormSubmit(specialty, insurance, gender, location,status);
 
 event.preventDefault();
 };
 
-runOnPageLoad();
+runOnPageLoad(status);
